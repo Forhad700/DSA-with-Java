@@ -1,50 +1,23 @@
-import java.util.Arrays;
+def selection_sort(arr):
+    for i in range(len(arr)-1):
+        mn = i
+        for j in range(i+1, len(arr)):
+            if arr[j]<arr[mn]:
+                mn = j
+        arr[i], arr[mn] = arr[mn], arr[i]
+    return arr  
 
-public class SelectionSort {
-    public static void main(String[] args) {
-        int[] arr = {2,1,3,5,4};
-        selection(arr);
-        System.out.println(Arrays.toString(arr));
-    }
-
-    static void selection(int[] arr){
-        for(int i=0; i<arr.length-1; i++){
-            int min = i;
-            for(int j=i+1; j<arr.length; j++){
-                if(arr[j]<arr[min]){
-                    min = j;
-                }
-            }
-            int tmp = arr[min];
-            arr[min] = arr[i];
-            arr[i] = tmp;
-        }
-    }
+n = int(input("Input size: "))
+arr = []
+for i in range(n):
+    x = int(input())
+    arr.append(x)
 
 
+# # one line space-separated input  
+# n = int(input("Input size: "))
+# x = input("Enter space-separated values: ")
+# arr = list(map(int, x.split()))
 
-    
-    // static void selection(int[] arr){
-    //     for(int i=0; i<arr.length; i++){
-    //         int last = arr.length-i-1;
-    //         int maxIndex = getMaxIndex(arr, 0, last);
-    //         swap(arr, maxIndex, last);
-    //     }
-    // }
-
-    // static void swap(int[] arr, int first, int second){
-    //     int tmp = arr[first];
-    //     arr[first] = arr[second];
-    //     arr[second] = tmp;
-    // }
-
-    // private static int getMaxIndex(int[] arr, int start, int end){
-    //     int max = start;
-    //     for(int i=start; i<=end; i++){
-    //         if(arr[max]<arr[i]){
-    //             max = i;
-    //         }
-    //     }
-    //     return max;
-    // }
-}
+selection_sort(arr)
+print(arr)
