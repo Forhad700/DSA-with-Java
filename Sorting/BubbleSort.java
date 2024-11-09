@@ -1,50 +1,40 @@
 import java.util.Arrays;
 
-public class SelectionSort {
+public class BubbleSort{
     public static void main(String[] args) {
         int[] arr = {2,1,3,5,4};
-        selection(arr);
+        bubble(arr);
         System.out.println(Arrays.toString(arr));
     }
 
-    static void selection(int[] arr){
-        for(int i=0; i<arr.length-1; i++){
-            int min = i;
-            for(int j=i+1; j<arr.length; j++){
-                if(arr[j]<arr[min]){
-                    min = j;
+    static void bubble(int[] arr){
+        for(int i=0; i<arr.length; i++){
+            for(int j=1; j<arr.length-i; j++){
+                if(arr[j-1]>arr[j]){
+                    int tmp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = tmp;
                 }
             }
-            int tmp = arr[min];
-            arr[min] = arr[i];
-            arr[i] = tmp;
         }
     }
 
 
-
-    
-    // static void selection(int[] arr){
+    // // if already sorted
+    // static void bubble(int[] arr){
     //     for(int i=0; i<arr.length; i++){
-    //         int last = arr.length-i-1;
-    //         int maxIndex = getMaxIndex(arr, 0, last);
-    //         swap(arr, maxIndex, last);
-    //     }
-    // }
-
-    // static void swap(int[] arr, int first, int second){
-    //     int tmp = arr[first];
-    //     arr[first] = arr[second];
-    //     arr[second] = tmp;
-    // }
-
-    // private static int getMaxIndex(int[] arr, int start, int end){
-    //     int max = start;
-    //     for(int i=start; i<=end; i++){
-    //         if(arr[max]<arr[i]){
-    //             max = i;
+    //         boolean swapped = false;
+    //         for(int j=1; j<arr.length-i; j++){
+    //             if(arr[j-1]>arr[j]){
+    //                 int tmp = arr[j];
+    //                 arr[j] = arr[j-1];
+    //                 arr[j-1] = tmp;
+    //                 swapped = true;
+    //             }
+    //         }
+    //         if(!swapped){
+    //             break;
     //         }
     //     }
-    //     return max;
     // }
 }
